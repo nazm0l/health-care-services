@@ -1,0 +1,31 @@
+.banner{
+    background-image: url(../../../images/header.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 75vh;
+}
+
+.banner-text{
+    margin-top: 175px;
+    padding-left: 100px;
+}
+
+.banner-text h3{
+    font-size: 55px;
+}
+
+@media only screen and (max-width: 600px) {
+    .banner{
+        height: 20vh;
+    }
+
+    .banner-text{
+        margin-top: 15px;
+        padding-left: 0px;
+    }
+
+    .banner-text h3{
+        font-size: 26px;
+    }
+    
+}
