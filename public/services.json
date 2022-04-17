@@ -1,0 +1,23 @@
+[
+    {
+      "_id": 1,
+      "picture": "https://i.ibb.co/YZtpKKq/blood.png",
+      "price": 22,
+      "name": "Blood Test",
+      "description": "I'm test your blood group using modern machine in my lab."
+    },
+    {
+      "_id": 2,
+      "picture": "https://i.ibb.co/6NsqBbs/diabetes.png",
+      "price": 65,
+      "name": "Diabates Test",
+      "description": "Test your sugar level accurately, fast and take my guidance."
+    },
+    {
+      "_id": 3,
+      "picture": "https://i.ibb.co/23wcWTj/bp.png",
+      "price": 35,
+      "name": "Blood Pressure Test",
+      "description": "Test your blood pressure and get some tips for control it."
+    }
+  ]
