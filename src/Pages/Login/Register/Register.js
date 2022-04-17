@@ -25,7 +25,7 @@ const Register = () => {
         const password = passwordRef.current.value;
 
         createUserWithEmailAndPassword(email, password);
-        navigate('/');
+        navigate('/login');
     }
 
   return (
