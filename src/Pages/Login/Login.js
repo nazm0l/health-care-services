@@ -1,8 +1,10 @@
 import React, { useRef } from "react";
 import { Button, Form } from "react-bootstrap";
-import { useSignInWithEmailAndPassword, useSignInWithGoogle } from "react-firebase-hooks/auth";
+import { useSignInWithEmailAndPassword } from "react-firebase-hooks/auth";
 import { Link, useNavigate } from "react-router-dom";
 import auth from "../../firebase.init";
+import Loading from "../Shared/Loading/Loading";
+import SocialLogin from "./SocialLogin/SocialLogin";
 
 const Login = () => {
   const emailRef = useRef("");
@@ -12,16 +14,18 @@ const Login = () => {
   const [signInWithEmailAndPassword, user, loading, error] =
     useSignInWithEmailAndPassword(auth);
 
-    const [signInWithGoogle, userGoogle, loadingGoogle, errorGoogle] = useSignInWithGoogle(auth);
-
-  if (user || userGoogle) {
+  if (user) {
     navigate("/");
   }
 
   let errorMessage;
-    if (error || errorGoogle) {
-        errorMessage = <p className='text-danger'>{error?.message} {errorGoogle.message}</p>
-      }
+  if (error) {
+    errorMessage = <p className="text-danger">{error?.message}</p>;
+  }
+
+  if (loading) {
+    return <Loading></Loading>;
+  }
 
   const handleLogin = (event) => {
     event.preventDefault();
@@ -54,6 +58,7 @@ const Login = () => {
               required
             />
           </Form.Group>
+          {errorMessage}
           <Button variant="dark" type="submit">
             LogIn
           </Button>
@@ -64,16 +69,7 @@ const Login = () => {
             Register Now
           </Link>
         </p>
-        {errorMessage}
-        {/*------------ Social Login --------- */}
-        <div className="d-flex align-items-center">
-          <div style={{ height: "1px" }} className="bg-dark w-50"></div>
-          <p className="mt-2 px-2">OR</p>
-          <div style={{ height: "1px" }} className="bg-dark w-50"></div>
-        </div>
-        <div className="text-center">
-            <button onClick={()=>signInWithGoogle()} className="btn btn-dark">Continue with Google</button>
-        </div>
+        <SocialLogin></SocialLogin>
       </div>
     </div>
   );
