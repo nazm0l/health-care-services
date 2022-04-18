@@ -3,6 +3,7 @@ import { useSignInWithGoogle } from "react-firebase-hooks/auth";
 import { useNavigate } from "react-router-dom";
 import auth from "../../../firebase.init";
 import Loading from "../../Shared/Loading/Loading";
+import google from '../../../images/google.png'
 
 const SocialLogin = () => {
   const [signInWithGoogle, userGoogle, loadingGoogle, errorGoogle] =
@@ -36,7 +37,7 @@ const SocialLogin = () => {
       </div>
       <div className="text-center">
         <button onClick={() => signInWithGoogle()} className="btn btn-dark">
-          Continue with Google
+         <img style={{width: "40px"}} src={google} alt="" /> Continue with Google
         </button>
       </div>
     </div>
